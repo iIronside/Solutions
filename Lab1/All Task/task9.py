@@ -3,8 +3,31 @@
 # количество купюр подходящего достоинства. Если имеющихся денег не хватает, то необходимо напечатать сообщение
 # «Операция не может быть выполнена!».
 # Например, при сумме 5370 рублей на консоль должно быть выведено «5*1000 + 3*100 + 1*50 + 2*10».
-bucks = {10: 71, 50: 12, 100: 26, 500: 14, 1000: 7, 5000: 8}
-number = str(input('How much money you need?\n'))
-balance = {+value for value in bucks.values()}#кастует к словарю
-x = 5370//1000
-print(x)
+
+def findTotalSum(dict = {}):
+    balance = 0
+    for cost in dict:
+        balance += cost * dict[cost]
+    return balance
+
+
+moneyAvailable = {10: 5, 50: 7, 100: 4, 500: 3, 1000: 4, 5000: 1}
+requiredMoney = {}
+availableSum = findTotalSum(moneyAvailable)
+
+necessarySum = 5370#int(input('How much money you need?\n'))
+if availableSum >= necessarySum:
+    tmp = 0
+    for cost in sorted(moneyAvailable, reverse=True):#reverse и reversed???????
+        tmp = necessarySum // cost
+        if tmp <= moneyAvailable[cost]:
+            requiredMoney[cost] = tmp
+            necessarySum -= cost * tmp
+        else:
+            requiredMoney[cost] = moneyAvailable[cost]
+            necessarySum -= cost * moneyAvailable[cost]
+else:
+    print('Операция не может быть выполнена!')
+
+print(moneyAvailable)
+print(requiredMoney)
