@@ -1,21 +1,31 @@
-#Написать скрипт, который выводит на экран «True»,
-#если элементы программно задаваемого списка представляют собой возрастающую последовательность,
-#иначе – «False».!!!
-import  random
+# Написать скрипт, который выводит на экран «True», если элементы
+# программно задаваемого списка представляют собой возрастающую
+# последовательность, иначе – «False».!!!
 
-def checkList(list, size):
-    x = 0
-    while x < size:
-        print(list[x])
+import random
 
-list1 = []
+
+def check(checklist=[]):  # стиль именования аргументов в функции???
+    count = len(checklist) - 1
+    n = 0
+    while n < count:
+        if checklist[n] > checklist[n+1]:
+            return False
+        n += 1
+    return True
+
+sequenceList = []
+size = 100
+i = 0
+while i < size:
+    i += 1
+    sequenceList.append(i)
+print(len(sequenceList))
+print(check(sequenceList))
 list2 = []
 i = 0
-while i < 10:
-    i+=1
-    print(i)#list1[i] = random.randrange(0,100)#error!!!
-i = 0
-while i < 10:
+while i < size:
     i += 1
-    list2[i] = i + 1
-checkList(list2, len(list2))
+    list2.append(random.randint(1, 1000))
+print(check(list2))
+print(list2)

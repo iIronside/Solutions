@@ -1,18 +1,22 @@
-#Напишите скрипт, который разделяет введенный с клавиатуры текст на слова и выводит сначала те слова,
-#  длина которых превосходит 7 символов,
-#  затем слова размером от 4 до 7 символов, затем – все остальные.
-#enterWords = str(input("Enter the number:\n"))
+# Напишите скрипт, который разделяет введенный с клавиатуры текст на слова
+# и выводит сначала те слова, длина которых превосходит 7 символов,
+# затем слова размером от 4 до 7 символов, затем – все остальные.
 
-def sortByLenght(inputStr):
-    return len(inputStr)
 
-words = "Напишите скрипт, который разделяет введенный с клавиатуры текст на слова и выводит сначала те слова, длина которых превосходит 7 символов, затем слова размером от 4 до 7 символов, затем – все остальные."
-words2 = ''
-for i in range(len(words)):
-    if words[i] == ',' or words[i] == '.' or words[i] == '(' or words[i] == ')' or words[i] == '"' or words[i] == '–':
+def sort_by_len(inputstr):  # стиль именования аргументов в функции???
+    return len(inputstr)
+
+enterWords = "Напишите скрипт, который разделяет введенный с клавиатуры" \
+             " текст на слова и выводит сначала те слова, длина которых" \
+             " превосходит 7 символов, затем слова размером от 4 до 7 4" \
+             "символов, затем – все остальные."
+words = ''
+punctuation_marks = [',', '.', '(', ')', '"', '–', ':']
+for i in range(len(enterWords)):
+    if enterWords[i] in punctuation_marks:
         continue
     else:
-        words2 += words[i]
-wordsList = words2.split(' ')
-wordsList.sort(key=sortByLenght, reverse=True)
+        words += enterWords[i]
+wordsList = words.split(' ')
+wordsList.sort(key=sort_by_len, reverse=True)
 print(wordsList)

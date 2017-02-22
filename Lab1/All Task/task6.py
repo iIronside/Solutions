@@ -1,13 +1,16 @@
-# Напишите программу, позволяющую ввести с клавиатуры текст предложения и вывести на консоль все символы,
-#  которые входят в этот текст ровно по одному разу.
+# Напишите программу, позволяющую ввести с клавиатуры текст
+# предложения и вывести на консоль все символы, которые входят
+# в этот текст ровно по одному разу.
 
-D = {}
-string = 'Напишите программу, позволяющую ввести с клавиатуры текст предложения и вывести на консоль все символы'
-for i in range(len(string)):
-    if string[i] in D:
-        D[string[i]] += 1
+letterDict = {}
+# string = str(input("Enter the string:\n"))
+string = 'Напишите программу, позволяющую ввести с клавиатуры' \
+         ' текст предложения и вывести на консоль все символы'
+for i in range(len(string)):  # i или лучше именовать???
+    if string[i] in letterDict:
+        letterDict[string[i]] += 1
     else:
-        D[string[i]] = 1
-for key in D:
-    if D[key] < 2:
-        print("%s -> %s" % (key, D[key]))
+        letterDict[string[i]] = 1
+for key in letterDict:
+    if letterDict[key] < 2:
+        print("{} -> {}".format(key, letterDict[key]))
