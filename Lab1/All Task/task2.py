@@ -5,11 +5,11 @@
 import random
 
 
-def check(checklist=[]):  # стиль именования аргументов в функции???
-    count = len(checklist) - 1
+def check(check_list=[]):  # стиль именования аргументов в функции???
+    count = len(check_list) - 1
     n = 0
     while n < count:
-        if checklist[n] > checklist[n+1]:
+        if check_list[n] > check_list[n+1]:
             return False
         n += 1
     return True

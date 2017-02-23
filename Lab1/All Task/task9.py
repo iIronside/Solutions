@@ -7,10 +7,10 @@
 # выведено «5*1000 + 3*100 + 1*50 + 2*10».
 
 
-def find_total_sum(moneydict={}):  # стиль именования аргументов в функции???
+def find_total_sum(money_dict):  # стиль именования аргументов в функции???
     balance = 0
-    for price in moneydict:
-        balance += price * moneydict[price]
+    for price in money_dict:
+        balance += price * money_dict[price]
     return balance
 
 
