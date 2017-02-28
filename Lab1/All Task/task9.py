@@ -18,7 +18,7 @@ moneyAvailable = {10: 5, 50: 7, 100: 4, 500: 3, 1000: 4, 5000: 0}
 requiredMoney = {}
 availableSum = find_total_sum(moneyAvailable)
 
-necessarySum = 5370  # int(input('How much money you need?\n'))
+necessarySum = 4370  # int(input('How much money you need?\n'))
 if availableSum >= necessarySum:
     tmp = 0
     for cost in sorted(moneyAvailable, reverse=True):  # reverse и reversed???
@@ -26,7 +26,7 @@ if availableSum >= necessarySum:
         if moneyAvailable[cost] > 0 and tmp <= moneyAvailable[cost]:
             requiredMoney[cost] = tmp
             necessarySum -= cost * tmp
-        elif 0 < moneyAvailable[cost]:
+        elif  moneyAvailable[cost] > 0:
             requiredMoney[cost] = moneyAvailable[cost]
             necessarySum -= cost * moneyAvailable[cost]
     for cost in sorted(requiredMoney, reverse=True):
