@@ -23,16 +23,15 @@ if availableSum >= necessarySum:
     tmp = 0
     for cost in sorted(moneyAvailable, reverse=True):  # reverse и reversed???
         tmp = necessarySum // cost
-        if moneyAvailable[cost] > 0 and tmp <= moneyAvailable[cost]:
+        if 0 < tmp <= moneyAvailable[cost]:
             requiredMoney[cost] = tmp
             necessarySum -= cost * tmp
-        elif  moneyAvailable[cost] > 0:
+        elif moneyAvailable[cost] < tmp:
             requiredMoney[cost] = moneyAvailable[cost]
             necessarySum -= cost * moneyAvailable[cost]
     for cost in sorted(requiredMoney, reverse=True):
-        print("{}*{}".format(cost, requiredMoney[cost]))  # вывод с '+' ?
+        print("{}*{}".format(cost, requiredMoney[cost]), end="")
+        if cost is not requiredMoney[-1]:
+            print(" + ")
 else:
     print('Операция не может быть выполнена!')
-
-print(moneyAvailable)
-print(requiredMoney)

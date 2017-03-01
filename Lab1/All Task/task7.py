@@ -13,3 +13,4 @@ sites = ['http://'+site if site.startswith('www.') else site for site in sites]
 sites = [site if site.endswith('.com') else site+'.com' for site in sites]
 for i in sites:
     print(i)
+# NEED REFACTORING!!!!!!!!!!!!!!!!!!
