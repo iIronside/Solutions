@@ -3,24 +3,21 @@
 # фрагментов сигнала размера size со степенью перекрытия overlap.
 
 import random
-signal = []
-signalSize = 100
-
-i = 0
-while i < signalSize:
-    signal.append(random.randint(0.1000))
-    i += 1
-
-i = 0
-while i <
 
 
+def get_frames(sig, size, overlap):
+    step = int(size*overlap)
+    start = 0
+    end = size
+    while end < len(sig)+step:
+        cutSig = sig[start:end]
+        start += step
+        end += step
+        yield cutSig
 
-def frange(start=0.0, stop=None, step=None):
-    while start < stop - step:
-        start = round(start + step, 1)
-        yield start
 
-for frame in get_frames(signal, size=1024, overlap=0.5):
+signal =[random.randint(0,12) for i in range(7)]
+print(signal)
+
+for frame in get_frames(signal, size=4, overlap=0.5):
     print(frame)
-

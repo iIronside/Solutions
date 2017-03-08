@@ -8,12 +8,12 @@
 # 128, к 35 – это 64 и т.д.).
 
 import random
-number = random.randint(0, 10000)
+number = random.randint(0, 10)
 mass = []
 
 i = 0
 while i < number:
-    mass.append(random.randint(0, 10000))
+    mass.append(random.randint(0, 100))
     i += 1
 
 powerTwo = 2
@@ -26,5 +26,4 @@ print(number)
 print(powerTwo)
 print(len(mass))
 
-for i in range(len(mass)):
-    print(mass[i])
+print(mass)

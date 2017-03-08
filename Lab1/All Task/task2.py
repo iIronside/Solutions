@@ -5,7 +5,7 @@
 import random
 
 
-def check(check_list=[]):  # стиль именования аргументов в функции???
+def check(check_list=[]):
     count = len(check_list) - 1
     n = 0
     while n < count:

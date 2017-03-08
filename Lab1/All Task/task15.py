@@ -2,16 +2,17 @@
 # предварительную обработку (цифровую фильтрацию) списка по алгоритму:
 # s[i] = s[i]–a∙s[i–1]. Параметр а можно задать в коде (по умолчанию равен 0.97).
 
-s = [0.55, 0.25, 0.53, 0.45, 0.55]
+s = [5, 1, 3, 4, 2]
 
 
 def pre_process(a):
     def _decorator(func):
-        def _wrapper(*args, **kwargs):
-            arg = [args[i]*a for i in range(len(args))]
+        def _wrapper(args):
+            arg = [round(args[i]-a*s[i-1], 2) for i in range(len(args))]
             return func(arg)
         return _wrapper
     return _decorator
+
 
 @pre_process(a=0.93)
 def plot_signal(s):
@@ -20,4 +21,3 @@ def plot_signal(s):
 
 
 plot_signal(s)
-print(s[1])

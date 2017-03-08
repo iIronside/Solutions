@@ -18,7 +18,7 @@ moneyAvailable = {10: 5, 50: 7, 100: 4, 500: 3, 1000: 4, 5000: 0}
 requiredMoney = {}
 availableSum = find_total_sum(moneyAvailable)
 
-necessarySum = 4370  # int(input('How much money you need?\n'))
+necessarySum = 1110  # int(input('How much money you need?\n'))
 if availableSum >= necessarySum:
     tmp = 0
     for cost in sorted(moneyAvailable, reverse=True):  # reverse и reversed???
@@ -30,8 +30,6 @@ if availableSum >= necessarySum:
             requiredMoney[cost] = moneyAvailable[cost]
             necessarySum -= cost * moneyAvailable[cost]
     for cost in sorted(requiredMoney, reverse=True):
-        print("{}*{}".format(cost, requiredMoney[cost]), end="")
-        if cost is not requiredMoney[-1]:
-            print(" + ")
+        print("{}*{}".format(cost, requiredMoney[cost]))
 else:
     print('Операция не может быть выполнена!')
