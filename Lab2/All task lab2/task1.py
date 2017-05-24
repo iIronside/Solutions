@@ -10,7 +10,7 @@ letterDict = {}
 try:
     with open(r'E:\Мои документы\Питон\Lab2\text.txt', 'rt') as f:
         string = f.read()
-        string.upper()
+        string = string.upper()
         for sym in string:
             if sym.isalpha():
                 letterDict[sym] = letterDict.get(sym, 0) + 1
